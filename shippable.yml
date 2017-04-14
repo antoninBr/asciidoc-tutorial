@@ -1,0 +1,19 @@
+
+language: java
+
+jdk:
+  - oraclejdk8
+
+#Only checkout from master
+branches:
+  only:
+  - master
+
+#Install graphviz for plantUML schemas as png....
+before_install:
+  - sudo apt-get install graphviz
+
+
+build:
+  ci:
+    - mvn clean install
