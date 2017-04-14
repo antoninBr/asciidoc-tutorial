@@ -2,6 +2,8 @@
 
 A humble project to show all the benefits of using [asciidoc](http://www.methods.co.nz/asciidoc/) (+ some [plantUML](http://plantuml.com/) magic as well) in a java project with maven.
 
+[![Run Status](https://api.shippable.com/projects/58f07de99755e8070035ed26/badge?branch=master)](https://app.shippable.com/github/antoninBr/asciidoc-tutorial)
+
 ## Requirements
 
 Simply have java and maven installed on its local dev environment for asciidoc.
