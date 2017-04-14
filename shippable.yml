@@ -16,4 +16,4 @@ before_install:
 
 build:
   ci:
-    - mvn clean install
+    - mvn clean install -f asciidoc-tutorial-core/pom.xml
