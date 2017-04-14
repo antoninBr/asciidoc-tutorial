@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.brugnot.tutorials</groupId>
+    <artifactId>asciidoc-tutorial-core</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <asciidoctor-maven-plugin.version>1.5.5</asciidoctor-maven-plugin.version>
+        <timestamp>${maven.build.timestamp}</timestamp>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- asciidoctor generation -->
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>${asciidoctor-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>output-html</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+
+                    <!-- available are : coderay, highlightjs -->
+                    <sourceHighlighter>coderay</sourceHighlighter>
+
+                    <!-- Where to put all the generated docs-->
+                    <outputDirectory>target/docs</outputDirectory>
+                    <!-- Choose the documentation format -->
+                    <backend>html5</backend>
+                    <!-- Convert all assets such as png images as base64 -->
+                    <embedAssets>true</embedAssets>
+                    <attributes>
+                        <!-- -->
+                        <imagesdir>./images</imagesdir>
+                        <toc>left</toc>
+                        <icons>font</icons>
+                        <sectanchors>true</sectanchors>
+                        <idprefix />
+                        <idseparator>-</idseparator>
+
+                        <toc>left</toc>
+                        <toclevels>5</toclevels>
+                        <numbered />
+                        <revnumber>${project.version} - GNU GPLv3</revnumber>
+                        <author>Antonin Brugnot</author>
+                        <email>antonin.brugnot@laposte.net</email>
+                        <revdate>${timestamp}</revdate>
+                        <authorinitials>Unk</authorinitials>
+                    </attributes>
+
+                    <headerFooter>true</headerFooter>
+                    <!-- Where to find the asciidoc sources to generate -->
+                    <sourceDirectory>src/main/asciidoc/sources</sourceDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
